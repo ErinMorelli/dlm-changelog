@@ -2,7 +2,7 @@
 
 *by Erin Morelli*
 
-An add-on for Mike Jolley's [Dowload Monitor](http://wordpress.org/plugins/download-monitor/) that adds a version changelog functionlity.
+An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/download-monitor/) that adds a version changelog functionlity.
 
 **Requires Download Monitor verson 1.2 or higher**
 
