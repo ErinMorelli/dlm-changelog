@@ -8,11 +8,11 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-An add-on for Mike Jolley's Download Monitor that adds a version changelog functionlity.
+An add-on for Mike Jolley's Download Monitor that adds a version changelog functionality.
 
 == Description ==
 
-An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/download-monitor/) that adds a version changelog functionlity.
+An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/download-monitor/) that adds a version changelog functionality.
 
 **Requires Download Monitor verson 1.2 or higher**
 
