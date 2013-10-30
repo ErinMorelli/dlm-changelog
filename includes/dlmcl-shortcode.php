@@ -78,7 +78,7 @@ function dlm_changelog_output($dlm_files) {
 	 			)
 	 		);
 	
-			$output .= '<div class="dlm-changelog-list">'."\n";
+			$output .= '<div id="dlm-changelog-list">'."\n";
 			
 				$output .= dlm_changelog_show_page( $pages[$pgkey] );
 				

@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 /* Load More Button  */
 #dlm-changelog-load-posts .dlmcl-button {
-	max-width: 100px;
+	max-width: 125px;
 	width: 100%;
 	background-color: #e9e9e9;
 	color: #1d1d1d;
@@ -49,17 +49,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
 /* Version List */
-.dlm-changelog-list .dlm-changelog-item h3 {
+#dlm-changelog-list .dlm-changelog-item h3 {
 	margin: 0px 0px 5px;
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 20px;
 }
-.dlm-changelog-list .dlm-changelog-item .cl-dl {
+#dlm-changelog-list .dlm-changelog-item .cl-dl {
 	margin: 0 0 8px;
 	padding: 0;
 	font-size: 11px !important;
 }
-.dlm-changelog-list .dlm-changelog-item {
+#dlm-changelog-list .dlm-changelog-item {
 	margin: 0px 0px 25px;
 }
