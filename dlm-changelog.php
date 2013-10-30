@@ -3,7 +3,7 @@
  * Plugin Name: DLM Changelog Add-on
  * Plugin URI: http://erinmorelli.com/wordpress/dlm-changelog
  * Description: An add-on for Mike Jolley's Dowload Monitor that adds version changelog functionlity.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Erin Morelli
  * Author URI: http://erinmorelli.com/
  * License: GPLv2 or later
