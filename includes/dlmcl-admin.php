@@ -22,6 +22,61 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 
+add_action( 'wp_ajax_dlmcl_update', 'dlmcl_update_action' );
+
+function dlmcl_update_action() {
+	// Grab jEditiable Post Variables
+	$id = $_POST['id'];
+	$value = $_POST['value'];
+	
+	// If there's post content
+	if(!empty($value)) {
+	    
+	    // Declare new post attribues array
+	    $new_post_content = array( 
+	    	'ID' => $id,
+	    	'post_content' => $value
+	    	);
+	
+	    // Update the post into the database
+	    wp_update_post( $new_post_content );
+	    
+	    // print updated content
+	    print($value);
+	    
+	    // die before wp admin ajax dies
+	    die();
+	
+	} else {
+	    // If no post content, do nothing
+	    die();
+	}
+}
+
+
+add_action( 'admin_head', 'dlmcl_update_javascript' );
+
+function dlmcl_update_javascript() {
+?>
+<script type="text/javascript" >
+//Inline Editor
+jQuery(document).ready(function(){
+	jQuery('.editable').editable(ajaxurl, {
+		indicator : '<?php _e('Saving', 'dlm-changelog'); ?>...',
+		tooltip : '<?php _e('Click to edit notes', 'dlm-changelog'); ?>',
+		type : 'textarea',
+		submit : '<?php _e('Save', 'dlm-changelog'); ?>',
+		cancel : '<?php _e('Cancel', 'dlm-changelog'); ?>',
+		placeholder : "<?php _e('Click to add notes', 'dlm-changelog'); ?>",
+		rows : 10,
+		submitdata : {action: 'dlmcl_update'}
+     });
+});
+</script>
+<?php
+}
+
+
 function dlm_changelog_js() {
 	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'dmcl-inline-edit', DLMCL_PLUGIN_URL . 'assets/js/jquery.jeditable.js', array( 'jquery' ), '1.0', true );
@@ -37,6 +92,7 @@ function dlm_changelog_admin() {
 	add_submenu_page( 'edit.php?post_type=dlm_download', __( 'Changelogs', 'dlm-changelog' ), __( 'Changelogs', 'dlm-changelog' ), 'manage_options', 'download-monitor-changelogs', 'dlm_changelog_admin_page' );
 }
 
+
 function dlm_changelog_admin_page() {
 
 	$get_downloads = get_posts( array(
@@ -49,20 +105,6 @@ function dlm_changelog_admin_page() {
 ?>
 
 <script type="text/javascript">
-//Inline Editor
-jQuery(document).ready(function(){
-	jQuery('.editable').editable('<?php echo DLMCL_PLUGIN_URL; ?>includes/dlmcl-update.php', {
-         indicator : '<?php _e('Saving', 'dlm-changelog'); ?>...',
-         tooltip : '<?php _e('Click to edit notes', 'dlm-changelog'); ?>',
-         type : 'textarea',
-         submit : '<?php _e('Save', 'dlm-changelog'); ?>',
-         cancel : '<?php _e('Cancel', 'dlm-changelog'); ?>',
-         placeholder : "<?php _e('Click to add notes', 'dlm-changelog'); ?>",
-         rows : 10,
-         submitdata : {path: '<?php echo get_home_path(); ?>'}
-     });
-});
-
 // Download Select
 function change(){
     document.getElementById("dmcl_dl_form").submit();
