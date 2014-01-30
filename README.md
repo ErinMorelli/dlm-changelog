@@ -48,3 +48,7 @@ Use the community support forums for this plugin for questions that are specific
 1. Unzip the `dlm-changelog.zip` file to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Go to the new "Changelog" options page located in the DLM "Downloads" section
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ErinMorelli/dlm-changelog/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
