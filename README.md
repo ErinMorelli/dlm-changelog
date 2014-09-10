@@ -25,7 +25,7 @@ Use the community support forums for this plugin for questions that are specific
 
 ### Screenshots ###
 
-1. [The DLM Changelog admin area](https://raw.github.com/ErinMorelli/dlm-changelog/master/screenshot-1.jpg)
+![The DLM Changelog admin area](https://bitbucket.org/repo/MGqdyg/images/1845611380-screenshot-1.jpg)
 
 
 
