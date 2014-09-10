@@ -35,7 +35,7 @@ Use the community support forums for this plugin for questions that are specific
 ## Latest Release ##
 
 
-### [Version 0.1.1 - Minor Bug Fix](https://github.com/ErinMorelli/dlm-changelog/releases/tag/v0.1.1) ###
+### [Version 0.1.1 - Minor Bug Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/get/v0.1.1.zip) ###
 * Fixed jQuery pagination issue with shortcode output
 
 
