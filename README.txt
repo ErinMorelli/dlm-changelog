@@ -17,7 +17,7 @@ An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/down
 **Requires Download Monitor verson 1.2 or higher**
 
 
-## Shortcode ##
+= Shortcode =
 
 Use this shortcode to display a DLM Download's changelog in your posts or pages:
 
@@ -28,8 +28,7 @@ To **paginate** the changelog's output, use the optional `show` attribute with t
 `[dlm_changelog id={DLM Download ID} show="5"]`
 
 
-
-### Support ###
+= Support =
 
 Use the community support forums for this plugin for questions that are specific to the Changelog Add-on. For support questions specific to other aspects of the Download Monitor plugin, please visit it's [support forum](http://wordpress.org/support/plugin/download-monitor) or log a bug on the [DLM GitHub](https://github.com/mikejolley/download-monitor).
 
