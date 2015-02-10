@@ -3,8 +3,8 @@ Contributors: ErinMorelli
 Donate link: http://erinmorelli.com/wordpress/
 Tags: download monitor, changelog, downloads, versions
 Requires at least: 3.0.1
-Tested up to: 3.8
-Stable tag: 0.1.1
+Tested up to: 4.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,9 +81,15 @@ OR
 = 0.1.1 = 
 * Fixed jQuery pagination issue with shortcode output
 
+= 0.1.2 =
+* Fixed issue with plugin breaking on Download Monitor upgrade
+
 
 
 == Upgrade Notice ==
 
 = 0.1.0 = 
 Initial plugin release
+
+= 0.1.2 =
+This version fixes issue with plugin breaking due to a Download Monitor upgrade.  Upgrade immediately.

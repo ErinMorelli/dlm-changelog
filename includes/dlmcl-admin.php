@@ -62,11 +62,11 @@ function dlmcl_update_javascript() {
 //Inline Editor
 jQuery(document).ready(function(){
 	jQuery('.editable').editable(ajaxurl, {
-		indicator : '<?php _e('Saving', 'dlm-changelog'); ?>...',
-		tooltip : '<?php _e('Click to edit notes', 'dlm-changelog'); ?>',
-		type : 'textarea',
-		submit : '<?php _e('Save', 'dlm-changelog'); ?>',
-		cancel : '<?php _e('Cancel', 'dlm-changelog'); ?>',
+		indicator : "<?php _e('Saving', 'dlm-changelog'); ?>...",
+		tooltip : "<?php _e('Click to edit notes', 'dlm-changelog'); ?>",
+		type : "textarea",
+		submit : "<?php _e('Save', 'dlm-changelog'); ?>",
+		cancel : "<?php _e('Cancel', 'dlm-changelog'); ?>",
 		placeholder : "<?php _e('Click to add notes', 'dlm-changelog'); ?>",
 		rows : 10,
 		submitdata : {action: 'dlmcl_update'}
@@ -89,7 +89,14 @@ add_action('admin_enqueue_scripts', 'dlm_changelog_js');
 add_action('admin_menu', 'dlm_changelog_admin');
 
 function dlm_changelog_admin() {
-	add_submenu_page( 'edit.php?post_type=dlm_download', __( 'Changelogs', 'dlm-changelog' ), __( 'Changelogs', 'dlm-changelog' ), 'manage_options', 'download-monitor-changelogs', 'dlm_changelog_admin_page' );
+	add_submenu_page(
+		'edit.php?post_type=dlm_download',
+		__( 'Changelogs', 'dlm-changelog' ),
+		__( 'Changelogs', 'dlm-changelog' ),
+		'manage_options',
+		'download-monitor-changelogs',
+		'dlm_changelog_admin_page'
+	);
 }
 
 
@@ -100,7 +107,7 @@ function dlm_changelog_admin_page() {
 		'post_status' => 'publish',
 		'orderby' => 'title',
 		'order' => 'ASC'
-		) );
+	) );
 
 ?>
 

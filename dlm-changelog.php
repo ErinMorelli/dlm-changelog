@@ -3,7 +3,7 @@
  * Plugin Name: DLM Changelog Add-on
  * Plugin URI: http://erinmorelli.com/wordpress/dlm-changelog
  * Description: An add-on for Mike Jolley's Dowload Monitor that adds version changelog functionlity.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Author: Erin Morelli
  * Author URI: http://erinmorelli.com/
  * License: GPLv2 or later
@@ -19,28 +19,38 @@ if ( !defined('PLUGINDIR') )
 	define( 'PLUGINDIR', 'wp-content/plugins' );
 
 // Initiate plugin files
-function dlmcl_plugin_load(){
+function __dlmcl_plugin_load(){
+
+    // Set path to DLM plugin file
+    define( 'DLM_PLUGIN_DIR', ABSPATH . PLUGINDIR . '/download-monitor/' );
+    $dlm_path = DLM_PLUGIN_DIR . 'download-monitor.php';
 
 	// Detect if DLM is installed & load DLMCL files
-	if ( file_exists( ABSPATH . PLUGINDIR . '/download-monitor/download-monitor.php' ) ) {
-	
-		define('DLM_PLUGIN_DIR', plugin_dir_path( ABSPATH . PLUGINDIR . '/download-monitor/download-monitor.php' ) );
+	if ( file_exists( $dlm_path ) ) {
 		
-		include_once(DLM_PLUGIN_DIR . 'download-monitor.php');
+        // Included for get_plugin_data function
+        include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-		$dlm_version = floatval( DLM_VERSION );
+        // Retrieve current DLM plugin version
+        $dlm_info = get_plugin_data( $dlm_path, false);
+		$dlm_version = floatval( $dlm_info['Version'] );
+
+        // Check against this version
 		$check_version = 1.2;
 		
-		if ( $dlm_version >= $check_version ) { // If correct version, include DLMCL files
+        // If correct version, include DLMCL files
+		if ( $dlm_version >= $check_version ) {
 			
-			if(is_admin()) //load admin files only in admin
+            //load admin files only in admin
+			if(is_admin())
 				require_once(DLMCL_PLUGIN_DIR.'includes/dlmcl-admin.php');
         
 			require_once(DLMCL_PLUGIN_DIR.'includes/dlmcl-shortcode.php');
 			
 			add_action( 'wp_enqueue_scripts', 'dlmcl_load_styles' );
-			
-		} else { // Else return version error
+
+        // Else return version error
+		} else {
 		
 			add_action( 'admin_notices', 'dlmcl_version_notice' );
 
@@ -53,8 +63,9 @@ function dlmcl_plugin_load(){
              }
 			
 		}
-		
-	} else { // Return an error
+
+	// Return an error
+	} else {
 		
 		add_action( 'admin_init', 'dlmcl_error_deactivate' );
 		add_action( 'admin_notices', 'dlmcl_error_notice' );
@@ -74,7 +85,10 @@ function dlmcl_plugin_load(){
 	}
 		
 }
-dlmcl_plugin_load();
+
+// Init plugin
+add_action( 'plugins_loaded', '__dlmcl_plugin_load', 10 );
+
 
 // Load plugin styles
 function dlmcl_load_styles() {
@@ -88,7 +102,7 @@ register_activation_hook(__FILE__, 'dlmcl_plugin_activation');
 
 function dlmcl_plugin_activation() {
 	// Check for new version
-	$dlmcl_curr_version = '0.1.0';
+	$dlmcl_curr_version = '0.1.2';
 	 
 	if (!defined('DLMCL_VERSION_KEY')) {
 		// Define new version option

@@ -4,7 +4,7 @@
 
 An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/download-monitor/) which adds version changelog functionality.
 
-**Requires Download Monitor verson 1.2 or higher**
+**Requires Download Monitor version 1.2 or higher**
 
 
 ## Shortcode ##
@@ -35,8 +35,8 @@ Use the community support forums for this plugin for questions that are specific
 ## Latest Release ##
 
 
-### [Version 0.1.1 - Minor Bug Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/get/v0.1.1.zip) ###
-* Fixed jQuery pagination issue with shortcode output
+### [Version 0.1.2 - Major Bug Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/get/v0.1.2.zip) ###
+* Fixed issue with plugin breaking on Download Monitor upgrade
 
 
 
