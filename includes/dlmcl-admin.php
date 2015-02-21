@@ -29,6 +29,8 @@ function dlmcl_update_action() {
 	$id = $_POST['id'];
 	$value = $_POST['value'];
 
+	error_log($value);
+
 	// If there's post content
 	if(!empty($value)) {
 
@@ -63,14 +65,31 @@ function dlmcl_update_javascript() {
 jQuery(document).ready(function(){
 	jQuery('.editable').editable(ajaxurl, {
 		indicator : "<?php _e('Saving', 'dlm-changelog'); ?>...",
-		tooltip : "<?php _e('Click to edit notes', 'dlm-changelog'); ?>",
-		type : "textarea",
-		submit : "<?php _e('Save', 'dlm-changelog'); ?>",
-		cancel : "<?php _e('Cancel', 'dlm-changelog'); ?>",
-		placeholder : "<?php _e('Click to add notes', 'dlm-changelog'); ?>",
-		rows : 10,
-		submitdata : {action: 'dlmcl_update'}
-	});
+		tooltip : "<?php _e('Click to edit version notes', 'dlm-changelog'); ?>",
+		placeholder : "<?php _e('Click to add version notes', 'dlm-changelog'); ?>",
+		submitdata : {action: 'dlmcl_update'},
+		type      : 'wysiwyg',
+		width     : 500,
+		height    : 'auto',
+		onblur    : 'ignore',
+		submit    : "<?php _e('Save', 'dlm-changelog'); ?>",
+		cancel    : "<?php _e('Cancel', 'dlm-changelog'); ?>",
+		wysiwyg   : {
+			autoGrow : true,
+			autoSave: true,
+			iFrameClass : "dlmcl-version-editor",
+			css: "<?php echo DLMCL_PLUGIN_URL .'assets/css/editor-style.css'; ?>",
+			initialContent: "<?php _e('Click to edit version notes', 'dlm-changelog'); ?>",
+			rmUnwantedBr: true,
+			controls : {
+				html : { visible : true },
+				insertImage: { visible: false },
+				insertTable: { visible: false },
+				increaseFontSize: { visible : true },
+				decreaseFontSize: { visible : true },
+			},
+		}
+     });
 });
 </script>
 <?php
@@ -78,12 +97,15 @@ jQuery(document).ready(function(){
 
 
 function dlm_changelog_js() {
-	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'dmcl-inline-edit', DLMCL_PLUGIN_URL . 'assets/js/jquery.jeditable.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'dmcl-wysiwyg', DLMCL_PLUGIN_URL . 'assets/js/jquery.wysiwyg.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'dmcl-wysiwyg-link', DLMCL_PLUGIN_URL . 'assets/js/wysiwyg.link.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'dmcl-wysiwyg-tidy', DLMCL_PLUGIN_URL . 'assets/js/wysiwyg.tidy.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'dmcl-inline-wysiwyg', DLMCL_PLUGIN_URL . 'assets/js/jquery.jeditable.wysiwyg.js', array( 'jquery' ), '1.0', true );
 
 	wp_enqueue_style( 'dmcl-admin', DLMCL_PLUGIN_URL .'assets/css/admin-style.css' );
+	wp_enqueue_style( 'dmcl-wysiwyg-css', DLMCL_PLUGIN_URL .'assets/css/jquery.wysiwyg.css' );
 }
-add_action('admin_enqueue_scripts', 'dlm_changelog_js');
 
 
 add_action('admin_menu', 'dlm_changelog_admin');
@@ -101,7 +123,7 @@ function dlm_changelog_admin() {
 
 
 function dlm_changelog_admin_page() {
-
+	dlm_changelog_js();
 	$get_downloads = get_posts( array(
 		'post_type' => 'dlm_download',
 		'post_status' => 'publish',
@@ -110,6 +132,8 @@ function dlm_changelog_admin_page() {
 	) );
 
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 // Download Select

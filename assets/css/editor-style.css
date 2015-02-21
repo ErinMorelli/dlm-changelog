@@ -16,25 +16,21 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 *
 *
-* DLM Changelog Admin Styles
+* DLM Changelog Admin Editor Styles
 *
 */
 
 
-/* Table */
-.widefat.dlm-versions td {padding: 10px 7px 8px;}
-.widefat.dlm-versions tr:nth-child(even) {background-color: #f4f4f4;}
-.widefat.dlm-versions td ul,
-.widefat.dlm-versions td ul li {list-style: disc outside none !important;}
-.widefat.dlm-versions td ul {margin: 0px 0px 0px 20px;}
-
-/* Inline Editor */
-.dlm-versions .editable {
+body {
+	color: #333;
+	font-family: "Noto Serif", serif !important;
+	font-size: 16px;
+	line-height: 125%;
+	margin: 10px 20px !important;
+	padding: 0 !important;
 	word-break: break-word;
 }
-.dlm-versions .editable > form > .wysiwyg > textarea.show-html {
-	font-family: monospace !important;
-}
-.dlm-versions .editable > form > button {
-	margin: 5px 5px 10px 0px;
+
+p {
+	margin: 0px 0px 10px 0px;
 }
