@@ -1,0 +1,71 @@
+/*
+Copyright (c) 2013-2015, Erin Morelli.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*
+*
+* DLM Changelog Shortcode Styles
+*
+*/
+
+
+/* Load More Button  */
+.dlm-changelog-load-posts .dlmcl-button {
+    background-color: #E9E9E9;
+    border: 1px solid #C3C3C3;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+       -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+    color: #1d1d1d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 125px;
+    margin: 0;
+    padding: 4px 14px 5px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: background-color 0.15s ease-in-out;
+       -moz-transition: background-color 0.15s ease-in-out;
+         -o-transition: background-color 0.15s ease-in-out;
+            transition: background-color 0.15s ease-in-out;
+}
+.dlm-changelog-load-posts .dlmcl-button:hover {
+    border: 1px solid #C3C3C3;
+}
+
+
+/* Version List */
+.dlm-changelog-list .dlm-changelog-item .dlm-changelog-item-title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 5px;
+}
+.dlm-changelog-list .dlm-changelog-item .cl-dl {
+    font-size: 11px;
+    margin: 0 0 8px;
+    padding: 0;
+}
+.dlm-changelog-list .dlm-changelog-item {
+    margin: 0 0 25px;
+}
+.dlm-changelog-list .dlm-changelog-item ul,
+.dlm-changelog-list .dlm-changelog-item ol {
+    margin-left: 1em;
+}

@@ -1,0 +1,58 @@
+/**
+ * Copyright (c) 2013-2016, Erin Morelli.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ *
+ *
+ * DLM Changelog Admin Styles
+ */
+
+
+/**
+ * Changelog version table styles
+ */
+.dlmcl-versions td {
+    padding: 10px 7px 8px;
+}
+.dlmcl-versions tr:nth-child(even) {
+    background-color: #F4F4F4;
+}
+.dlmcl-versions td ul {
+    list-style: disc outside none;
+}
+.dlmcl-versions td ul {
+    margin: 0 0 0 20px;
+}
+
+
+/**
+ * Inline editor styles
+ */
+.dlmcl-versions .dlmcl-editable-cell {
+    padding: 0;
+}
+.dlmcl-versions .dlmcl-editable {
+    padding: 10px 7px 8px;
+}
+.dlmcl-versions .mce-edit-focus {
+    background-color: #FFFFFF;
+}
+.dlmcl-versions .dlmcl-editable-placeholder:before {
+    content: attr(data-placeholder);
+    font-style: italic;
+}
+/*.dlmcl-versions .dlmcl-editable-placeholder.mce-edit-focus:before {
+    content: none;
+}*/
