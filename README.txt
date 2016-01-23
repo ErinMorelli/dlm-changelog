@@ -77,18 +77,25 @@ OR
 = 0.1.0 =
 * Initial plugin release
 
-= 0.1.1 = 
+= 0.1.1 =
 * Fixed jQuery pagination issue with shortcode output
 
 = 0.1.2 =
 * Fixed issue with plugin breaking on Download Monitor upgrade
 
+= 1.0.0 =
+* Added TinyMCE inline WYSIWYG editor to changelog admin
+* Lots of under-the-hood code improvements and cleanup
+
 
 
 == Upgrade Notice ==
 
-= 0.1.0 = 
+= 0.1.0 =
 Initial plugin release
 
 = 0.1.2 =
 This version fixes issue with plugin breaking due to a Download Monitor upgrade.  Upgrade immediately.
+
+= 1.0.0 =
+Added WYSIWYG editor to changelog admin
