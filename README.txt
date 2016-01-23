@@ -1,6 +1,6 @@
 === DLM Changelog Add-on ===
 Contributors: ErinMorelli
-Donate link: http://erinmorelli.com/wordpress/
+Donate link: https://www.erinmorelli.com/projects/dlm-changelog/
 Tags: download monitor, changelog, downloads, versions
 Requires at least: 3.0.1
 Tested up to: 4.1
