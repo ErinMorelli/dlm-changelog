@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: DLM Changelog Add-on
- * Plugin URI: http://erinmorelli.com/wordpress/dlm-changelog
+ * Plugin URI: https://www.erinmorelli.com/projects/dlm-changelog/
  * Description: An add-on for Mike Jolley's Dowload Monitor that adds version changelog functionlity.
- * Version: 1.0.0
+ * Version: 1.1.1
  * Author: Erin Morelli
  * Author URI: http://erinmorelli.com/
  * License: GPLv2 or later
@@ -49,6 +49,26 @@ if (!defined('PLUGINDIR')) {
  */
 function DLMCL_Plugin_load()
 {
+    // Check for new version
+    $dlmcl_curr_version = '1.1.1';
+
+    // Define new version option
+    if (!defined('DLMCL_VERSION_KEY')) {
+        define('DLMCL_VERSION_KEY', 'dlmcl_version');
+    }
+
+    // Add current version value
+    if (!defined('DLMCL_VERSION_NUM')) {
+
+        define('DLMCL_VERSION_NUM', $dlmcl_curr_version);
+        add_option(DLMCL_VERSION_KEY, DLMCL_VERSION_NUM);
+    }
+
+    // Update the version value
+    if (get_option(DLMCL_VERSION_KEY) != $dlmcl_curr_version) {
+        update_option(DLMCL_VERSION_KEY, $dlmcl_curr_version);
+    }
+
     // Load plugins function
     include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -64,16 +84,6 @@ function DLMCL_Plugin_load()
 
     // Check to see if DLM is active
     $dlm_active = in_array($dlm_name, get_option('active_plugins'));
-
-    /**
-     * Deactivates the plugin
-     *
-     * @return void
-     */
-    function DLMCL_Plugin_Error_deactivate()
-    {
-        deactivate_plugins(plugin_basename(__FILE__));
-    }
 
     // Detect if DLM is installed & load DLMCL files
     if ($dlm_installed && $dlm_active) {
@@ -98,58 +108,19 @@ function DLMCL_Plugin_load()
             // Load plugin styles
             add_action('wp_enqueue_scripts', 'DLMCL_Plugin_styles');
         } else {
-            /**
-             * Displays DLM upgrade notification
-             *
-             * @return void
-             */
-            function DLMCL_Plugin_Error_upgrade()
-            {
-                echo '<div class="updated"><p>'.__('<strong>DLM Changelog</strong> works with <strong>Download Monitor</strong> version 1.2.0 and higher. Please upgrade to the latest version.', 'dlm-changelog').'</p></div>';
-
-                if (isset($_GET['activate'])) {
-                    unset($_GET['activate']);
-                }
-            }
-
             // Display incorrect version error
             add_action('admin_notices', 'DLMCL_Plugin_Error_upgrade');
+
+            // Deactivate plugin on error
+            add_action('admin_init', 'DLMCL_Plugin_Error_deactivate');
         }
     } elseif ($dlm_installed && !$dlm_active) {
-        /**
-         * Displays DLM inactive notification
-         *
-         * @return void
-         */
-        function DLMCL_Plugin_Error_inactive()
-        {
-            echo '<div class="error"><p>'.__('<strong>DLM Changelog</strong> requires <strong>Download Monitor</strong> to be activated in order to work.', 'dlm-changelog').'</p></div>';
-
-            if (isset($_GET['activate'])) {
-                unset($_GET['activate']);
-            }
-        }
-
         // Display incorrect version error
         add_action('admin_notices', 'DLMCL_Plugin_Error_inactive');
 
         // Deactivate plugin on error
         add_action('admin_init', 'DLMCL_Plugin_Error_deactivate');
     } else {
-        /**
-         * Displays DLM required notice
-         *
-         * @return void
-         */
-        function DLMCL_Plugin_Error_required()
-        {
-            echo '<div class="error"><p>'.__('<strong>DLM Changelog</strong> requires the <a href="http://wordpress.org/plugins/download-monitor/" target="_blank"><strong>Download Monitor</strong></a> plugin to work. Please install and reactivate.', 'dlm-changelog').'</p></div>';
-            if (isset($_GET['activate'])) {
-                unset($_GET['activate']);
-            }
-
-        }
-
         // Display DLM required error
         add_action('admin_notices', 'DLMCL_Plugin_Error_required');
 
@@ -160,6 +131,62 @@ function DLMCL_Plugin_load()
 
 // Initial plugin load
 add_action('plugins_loaded', 'DLMCL_Plugin_load', 10);
+
+
+/**
+ * Displays DLM upgrade notification
+ *
+ * @return void
+ */
+function DLMCL_Plugin_Error_upgrade()
+{
+    echo '<div class="updated"><p>'.__('<strong>DLM Changelog</strong> works with <strong>Download Monitor</strong> version 1.2.0 and higher. Please upgrade to the latest version.', 'dlm-changelog').'</p></div>';
+
+    if (isset($_GET['activate'])) {
+        unset($_GET['activate']);
+    }
+}
+
+
+/**
+ * Displays DLM inactive notification
+ *
+ * @return void
+ */
+function DLMCL_Plugin_Error_inactive()
+{
+    echo '<div class="error"><p>'.__('<strong>DLM Changelog</strong> requires <strong>Download Monitor</strong> to be activated in order to work.', 'dlm-changelog').'</p></div>';
+
+    if (isset($_GET['activate'])) {
+        unset($_GET['activate']);
+    }
+}
+
+
+/**
+ * Displays DLM required notice
+ *
+ * @return void
+ */
+function DLMCL_Plugin_Error_required()
+{
+    echo '<div class="error"><p>'.__('<strong>DLM Changelog</strong> requires the <a href="http://wordpress.org/plugins/download-monitor/" target="_blank"><strong>Download Monitor</strong></a> plugin to work. Please install and reactivate.', 'dlm-changelog').'</p></div>';
+    if (isset($_GET['activate'])) {
+        unset($_GET['activate']);
+    }
+
+}
+
+
+/**
+ * Deactivates the plugin
+ *
+ * @return void
+ */
+function DLMCL_Plugin_Error_deactivate()
+{
+    deactivate_plugins(plugin_basename(__FILE__));
+}
 
 
 /**
@@ -181,25 +208,8 @@ function DLMCL_Plugin_styles()
  */
 function DLMCL_Plugin_activate()
 {
-    // Check for new version
-    $dlmcl_curr_version = '1.0.0';
-
-    // Define new version option
-    if (!defined('DLMCL_VERSION_KEY')) {
-        define('DLMCL_VERSION_KEY', 'dlmcl_version');
-    }
-
-    // Add current version value
-    if (!defined('DLMCL_VERSION_NUM')) {
-
-        define('DLMCL_VERSION_NUM', $dlmcl_curr_version);
-        add_option(DLMCL_VERSION_KEY, DLMCL_VERSION_NUM);
-    }
-
-    // Update the version value
-    if (get_option(DLMCL_VERSION_KEY) != $dlmcl_curr_version) {
-        update_option(DLMCL_VERSION_KEY, $dlmcl_curr_version);
-    }
+    // Activation ruls
+    return;
 }
 
 // Set activation hook
@@ -230,10 +240,10 @@ function DLMCL_Plugin_uninstall()
 {
     // Unregister JS
     wp_dequeue_script('dlmcl-load-posts');
-    wp_dequeue_script('dmcl-inline-edit');
+    wp_dequeue_script('dlmcl-inline-edit');
 
     // Unregister CSS
-    wp_dequeue_style('dmcl-admin');
+    wp_dequeue_style('dlmcl-admin');
     wp_dequeue_style('dlmcl-shortcode');
 
     // Remove database settings
