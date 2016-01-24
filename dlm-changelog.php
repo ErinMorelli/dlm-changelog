@@ -3,7 +3,7 @@
  * Plugin Name: DLM Changelog Add-on
  * Plugin URI: https://www.erinmorelli.com/projects/dlm-changelog/
  * Description: An add-on for Mike Jolley's Dowload Monitor that adds version changelog functionlity.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Erin Morelli
  * Author URI: http://erinmorelli.com/
  * License: GPLv2 or later
@@ -182,7 +182,7 @@ function DLMCL_Plugin_styles()
 function DLMCL_Plugin_activate()
 {
     // Check for new version
-    $dlmcl_curr_version = '1.0.0';
+    $dlmcl_curr_version = '1.0.1';
 
     // Define new version option
     if (!defined('DLMCL_VERSION_KEY')) {
@@ -230,10 +230,10 @@ function DLMCL_Plugin_uninstall()
 {
     // Unregister JS
     wp_dequeue_script('dlmcl-load-posts');
-    wp_dequeue_script('dmcl-inline-edit');
+    wp_dequeue_script('dlmcl-inline-edit');
 
     // Unregister CSS
-    wp_dequeue_style('dmcl-admin');
+    wp_dequeue_style('dlmcl-admin');
     wp_dequeue_style('dlmcl-shortcode');
 
     // Remove database settings

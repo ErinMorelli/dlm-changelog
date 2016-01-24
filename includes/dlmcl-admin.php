@@ -111,7 +111,8 @@ function DLMCL_Admin_page()
             'post_type'     => 'dlm_download',
             'post_status'   => 'publish',
             'orderby'       => 'title',
-            'order'         => 'ASC'
+            'order'         => 'ASC',
+            'numberposts'   => -1,
         )
     );
 

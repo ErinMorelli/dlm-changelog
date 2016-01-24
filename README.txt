@@ -4,7 +4,7 @@ Donate link: https://www.erinmorelli.com/projects/dlm-changelog/
 Tags: download monitor, changelog, downloads, versions
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,28 +74,34 @@ OR
 
 == Changelog ==
 
-= 0.1.0 =
-* Initial plugin release
-
-= 0.1.1 =
-* Fixed jQuery pagination issue with shortcode output
-
-= 0.1.2 =
-* Fixed issue with plugin breaking on Download Monitor upgrade
+= 1.0.1 =
+* Fixed issue where not all published downloads were showing in admin dropdown
 
 = 1.0.0 =
 * Added TinyMCE inline WYSIWYG editor to changelog admin
 * Lots of under-the-hood code improvements and cleanup
 
+= 0.1.2 =
+* Fixed issue with plugin breaking on Download Monitor upgrade
+
+= 0.1.1 =
+* Fixed jQuery pagination issue with shortcode output
+
+= 0.1.0 =
+* Initial plugin release
+
 
 
 == Upgrade Notice ==
 
-= 0.1.0 =
-Initial plugin release
+= 1.0.1 =
+* Fixed issue where not all published downloads were showing in admin dropdown
+
+= 1.0.0 =
+Added WYSIWYG editor to changelog admin
 
 = 0.1.2 =
 This version fixes issue with plugin breaking due to a Download Monitor upgrade.  Upgrade immediately.
 
-= 1.0.0 =
-Added WYSIWYG editor to changelog admin
+= 0.1.0 =
+Initial plugin release
