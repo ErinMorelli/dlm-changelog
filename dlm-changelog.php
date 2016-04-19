@@ -208,7 +208,7 @@ function DLMCL_Plugin_styles()
  */
 function DLMCL_Plugin_activate()
 {
-    // Activation ruls
+    // Activation rules
     return;
 }
 

@@ -27,6 +27,7 @@
 /*jslint
     browser: true
     unparam: true
+    nomen: true
 */
 
 jQuery(document).ready(function ($) {
@@ -66,6 +67,47 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    // Remove success/error classes
+    function dlmcl_remove_classes(editor) {
+        // Get elements
+        var element = $(editor.bodyElement),
+            editor_element = $('#' + editor.theme.panel._id),
+            save_button = editor_element.find('.mce-i-save').offsetParent().parent();
+
+        // Remove save class
+        $(save_button).removeClass('dlmcl-save-success');
+        element.removeClass('dlmcl-save-success');
+
+        // Remove error class
+        $(save_button).removeClass('dlmcl-save-error');
+        element.removeClass('dlmcl-save-error');
+    }
+
+    // Show save error
+    function dlmcl_save_error(editor, element, data) {
+        // Get elements
+        var editor_element = $('#' + editor.theme.panel._id),
+            save_button = editor_element.find('.mce-i-save').offsetParent().parent();
+
+        // Add save class
+        $(save_button).addClass('dlmcl-save-error');
+        element.addClass('dlmcl-save-error');
+
+        // Report error
+        console.error('There was a problem saving the changelog note:', data);
+    }
+
+    // Show save success
+    function dlmcl_save_success(editor, element, data) {
+        // Get elements
+        var editor_element = $('#' + editor.theme.panel._id),
+            save_button = editor_element.find('.mce-i-save').offsetParent().parent();
+
+        // Add save class
+        $(save_button).addClass('dlmcl-save-success');
+        element.addClass('dlmcl-save-success');
+    }
+
     // Initialize TinyMCE inline editor
     tinymce.init({
         selector: 'div.dlmcl-editable',
@@ -87,6 +129,7 @@ jQuery(document).ready(function ($) {
             // Check if we need to show the placeholder
             editor.on('change', function (e) {
                 dlmcl_set_placeholder(editor);
+                dlmcl_remove_classes(editor);
             });
 
             // Hide placeholder on focus
@@ -97,21 +140,30 @@ jQuery(document).ready(function ($) {
             // Check if we need to show the placeholder on blur
             editor.on('blur', function (e) {
                 dlmcl_set_placeholder(editor);
+                dlmcl_remove_classes(editor);
             });
         },
         save_onsavecallback: function () {
             // Set up post save AJAX data
-            var data = {
-                'action': 'dlmcl_save_post',
-                'post_id': $(this.bodyElement).data('id'),
-                'post_content': this.getContent()
-            };
+            var ed = tinymce.activeEditor,
+                element = $(this.bodyElement),
+                data = {
+                    'action': 'dlmcl_save_post',
+                    'post_id': $(this.bodyElement).data('id'),
+                    'post_content': this.getContent()
+                };
 
             // Make AJAX POST call to WP
             $.post(ajaxurl, data, function (response) {
+                // Handle empty save responses
                 if (response === '') {
-                    console.error('There was a problem saving the changelog note:', data);
+                    return dlmcl_save_error(ed, element, data);
                 }
+
+                // Display success styles
+                return dlmcl_save_success(ed, element, data);
+            }).fail(function () {
+                return dlmcl_save_error(ed, element, data);
             });
         }
     });

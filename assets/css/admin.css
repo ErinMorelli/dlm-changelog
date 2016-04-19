@@ -49,10 +49,39 @@
 .dlmcl-versions .mce-edit-focus {
     background-color: #FFFFFF;
 }
-.dlmcl-versions .dlmcl-editable-placeholder:before {
+.dlmcl-versions .dlmcl-editable-placeholder::before {
     content: attr(data-placeholder);
     font-style: italic;
 }
 /*.dlmcl-versions .dlmcl-editable-placeholder.mce-edit-focus:before {
     content: none;
 }*/
+
+
+/**
+ * Error/Success Styles
+ */
+.dlmcl-editable-cell .dlmcl-save-success {
+    outline-color: #00D145;
+}
+.mce-floatpanel .mce-container .dlmcl-save-success::after {
+    color: #00D145;
+    content: "\f147";
+    font-family: dashicons;
+    font-size: 20px;
+    line-height: 30px;
+    position: relative;
+    right: 0;
+}
+.dlmcl-editable-cell .dlmcl-save-error {
+    outline-color: #FF0000;
+}
+.mce-floatpanel .mce-container .dlmcl-save-error::after {
+    color: #FF0000;
+    content: "\f335";
+    font-family: dashicons;
+    font-size: 20px;
+    line-height: 30px;
+    position: relative;
+    right: 0;
+}
