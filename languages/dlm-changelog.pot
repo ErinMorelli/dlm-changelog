@@ -1,0 +1,122 @@
+# Copyright (C) 2016 DLM Changelog Add-on
+# This file is distributed under the same license as the DLM Changelog Add-on package.
+msgid ""
+msgstr ""
+"Project-Id-Version: DLM Changelog Add-on 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dlm-changelog\n"
+"POT-Creation-Date: 2016-04-20 00:57:47+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: dlm-changelog.php:148
+msgid ""
+"%s works with %s version 1.2.0 and higher. Please upgrade to the latest "
+"version."
+msgstr ""
+
+#: dlm-changelog.php:151 dlm-changelog.php:178 dlm-changelog.php:205
+msgid "DLM Changelog"
+msgstr ""
+
+#: dlm-changelog.php:155 dlm-changelog.php:182 dlm-changelog.php:209
+msgid "Download Monitor"
+msgstr ""
+
+#: dlm-changelog.php:175
+msgid "%s requires %s to be activated in order to work."
+msgstr ""
+
+#: dlm-changelog.php:202
+msgid "%s requires the %s plugin to work. Please install and reactivate."
+msgstr ""
+
+#: includes/dlmcl-admin.php:89 includes/dlmcl-admin.php:90
+#: includes/dlmcl-admin.php:128
+msgid "Changelogs"
+msgstr ""
+
+#: includes/dlmcl-admin.php:140 includes/dlmcl-admin.php:144
+msgid "Select Download"
+msgstr ""
+
+#: includes/dlmcl-admin.php:166
+msgid "Changelog"
+msgstr ""
+
+#: includes/dlmcl-admin.php:166
+msgid "Add Version"
+msgstr ""
+
+#: includes/dlmcl-admin.php:169
+msgid "Display this changelog on your site using this shortcode"
+msgstr ""
+
+#: includes/dlmcl-admin.php:175 includes/dlmcl-admin.php:183
+msgid "ID"
+msgstr ""
+
+#: includes/dlmcl-admin.php:176 includes/dlmcl-admin.php:184
+msgid "Version"
+msgstr ""
+
+#: includes/dlmcl-admin.php:177 includes/dlmcl-admin.php:185
+msgid "Notes"
+msgstr ""
+
+#: includes/dlmcl-admin.php:178 includes/dlmcl-admin.php:186
+msgid "Date"
+msgstr ""
+
+#: includes/dlmcl-admin.php:179 includes/dlmcl-admin.php:187
+msgid "Files"
+msgstr ""
+
+#: includes/dlmcl-admin.php:198
+msgid "Click to edit version notes"
+msgstr ""
+
+#: includes/dlmcl-admin.php:200
+msgid "Click to add version notes"
+msgstr ""
+
+#: includes/dlmcl-shortcode.php:115 includes/dlmcl-shortcode.php:123
+msgid "Show More"
+msgstr ""
+
+#: includes/dlmcl-shortcode.php:116
+msgid "Loading More"
+msgstr ""
+
+#: includes/dlmcl-shortcode.php:163
+msgid "Download"
+msgstr ""
+
+#: includes/dlmcl-shortcode.php:168
+msgid "Released"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "DLM Changelog Add-on"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.erinmorelli.com/projects/dlm-changelog/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"An add-on for Mike Jolley's Download Monitor that adds version changelog "
+"functionality."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Erin Morelli"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://erinmorelli.com/"
+msgstr ""
