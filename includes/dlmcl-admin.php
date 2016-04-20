@@ -137,7 +137,7 @@ function DLMCL_Admin_page()
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="dlmcl-select-download"><?php _e('Select Download: ', 'dlm-changelog');?></label>
+                        <label for="dlmcl-select-download"><?php _e('Select Download', 'dlm-changelog');?>:</label>
                     </th>
                     <td>
                         <select id="dlmcl-select-download" name="dlmcl-select-download">
@@ -166,7 +166,7 @@ function DLMCL_Admin_page()
         <h2>&ldquo;<?php $dlm_post->the_title(); ?>&rdquo; <?php _e('Changelog', 'dlm-changelog'); ?> <a href="<?php echo get_edit_post_link($dlm_id); ?>#download-monitor-file" class="add-new-h2"><?php _e('Add Version', 'dlm-changelog'); ?></a></h2>
 
         <ul class="subsubsub">
-            <li class="all"><?php _e('Display this changelog on your site using this shortcode: ', 'dlm-changelog'); ?><code>[dlm_changelog id="<?php echo $dlm_id; ?>"]</code><br />&nbsp;</li>
+            <li class="all"><?php _e('Display this changelog on your site using this shortcode', 'dlm-changelog'); ?>: <code>[dlm_changelog id="<?php echo $dlm_id; ?>"]</code><br />&nbsp;</li>
         </ul>
 
         <table class="widefat dlmcl-versions">

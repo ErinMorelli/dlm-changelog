@@ -127,6 +127,9 @@ function DLMCL_Plugin_load()
         // Deactivate plugin on error
         add_action('admin_init', 'DLMCL_Plugin_Error_deactivate');
     }
+
+    // Plugin localization
+    load_plugin_textdomain('dlm-changelog', false, plugin_basename(dirname(__FILE__)).'/languages');
 }
 
 // Initial plugin load
