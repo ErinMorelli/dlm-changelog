@@ -35,8 +35,8 @@ Use the community support forums for this plugin for questions that are specific
 ## Latest Release ##
 
 
-### [Version 1.0.1 - Minor Bug Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.0.1.zip) ###
-* Fixed issue where not all published downloads were showing in admin dropdown
+### [Version 1.1.0 - Minor Feature Update](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.1.0.zip) ###
+* Added simple success/error notifications for save events
 
 
 

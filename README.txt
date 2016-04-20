@@ -14,7 +14,7 @@ An add-on for Mike Jolley's Download Monitor which adds version changelog functi
 
 An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/download-monitor/) which adds version changelog functionality.
 
-**Requires Download Monitor verson 1.2 or higher**
+**Requires Download Monitor version 1.2 or higher**
 
 
 = Shortcode =
@@ -47,7 +47,7 @@ Use the community support forums for this plugin for questions that are specific
 
 = How do I add changelog version notes? =
 
-Go to "Downloads" then "Changelogs" in the WordPress admin. Select the download you wish to add/edit the changelog for from the dropdown. Under the "Notes" column of the download's Changelog table, click inside the area where your pre-existing notes are or where it says "Click to add notes". An inline text editor will appear for you to use. Click "Cancel" to delete changes or "Save" to save your notes. Basic HTML, such as *italics*, **bold**, underline, and ordered/unordered lists is able to be used in this text area.
+Go to "Downloads" then "Changelogs" in the WordPress admin. Select the download you wish to add/edit the changelog for from the dropdown. Under the "Notes" column of the download's Changelog table, click inside the area where your pre-existing notes are or where it says "Click to add notes". An inline text editor will appear for you to use. Click Save" to save your note. Basic HTML, such as *italics*, **bold**, underline, and ordered/unordered lists is able to be used in this text area.
 
 
 = How do I display a changelog on my site? =
@@ -73,6 +73,9 @@ OR
 
 
 == Changelog ==
+
+= 1.1.1 =
+* Added simple success/error notifications for save events
 
 = 1.0.1 =
 * Fixed issue where not all published downloads were showing in admin dropdown

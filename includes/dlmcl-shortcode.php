@@ -165,7 +165,7 @@ function DLMCL_Shortcode_Display_versions($versions)
         // Release Date
         $release = get_post($version->id);
 
-        $output .= ' &ndash; Released ';
+        $output .= ' &ndash; '.__('Released', 'dlm-changelog').' ';
         $output .=  date('m/d/y', strtotime($release->post_date));
         $output .= '</p>'."\n";
 

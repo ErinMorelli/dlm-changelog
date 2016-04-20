@@ -2,10 +2,10 @@
 /**
  * Plugin Name: DLM Changelog Add-on
  * Plugin URI: https://www.erinmorelli.com/projects/dlm-changelog/
- * Description: An add-on for Mike Jolley's Dowload Monitor that adds version changelog functionlity.
- * Version: 1.1.1
+ * Description: An add-on for Mike Jolley's Download Monitor that adds version changelog functionality.
+ * Version: 1.1.0
  * Author: Erin Morelli
- * Author URI: http://erinmorelli.com/
+ * Author URI: https://erinmorelli.com/
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: dlm-changelog
@@ -50,7 +50,7 @@ if (!defined('PLUGINDIR')) {
 function DLMCL_Plugin_load()
 {
     // Check for new version
-    $dlmcl_curr_version = '1.1.1';
+    $dlmcl_curr_version = '1.1.0';
 
     // Define new version option
     if (!defined('DLMCL_VERSION_KEY')) {
@@ -140,7 +140,19 @@ add_action('plugins_loaded', 'DLMCL_Plugin_load', 10);
  */
 function DLMCL_Plugin_Error_upgrade()
 {
-    echo '<div class="updated"><p>'.__('<strong>DLM Changelog</strong> works with <strong>Download Monitor</strong> version 1.2.0 and higher. Please upgrade to the latest version.', 'dlm-changelog').'</p></div>';
+    echo '<div class="updated"><p>';
+    printf(
+        __('%s works with %s version 1.2.0 and higher. Please upgrade to the latest version.', 'dlm-changelog'),
+        sprintf(
+            '<strong>%s</strong>',
+            __('DLM Changelog', 'dlm-changelog')
+        ),
+        sprintf(
+            '<strong>%s</strong>',
+            __('Download Monitor', 'dlm-changelog')
+        )
+    );
+    echo '</p></div>';
 
     if (isset($_GET['activate'])) {
         unset($_GET['activate']);
@@ -155,7 +167,19 @@ function DLMCL_Plugin_Error_upgrade()
  */
 function DLMCL_Plugin_Error_inactive()
 {
-    echo '<div class="error"><p>'.__('<strong>DLM Changelog</strong> requires <strong>Download Monitor</strong> to be activated in order to work.', 'dlm-changelog').'</p></div>';
+    echo '<div class="error"><p>';
+    printf(
+        __('%s requires %s to be activated in order to work.', 'dlm-changelog'),
+        sprintf(
+            '<strong>%s</strong>',
+            __('DLM Changelog', 'dlm-changelog')
+        ),
+        sprintf(
+            '<strong>%s</strong>',
+            __('Download Monitor', 'dlm-changelog')
+        )
+    );
+    echo '</p></div>';
 
     if (isset($_GET['activate'])) {
         unset($_GET['activate']);
@@ -170,7 +194,20 @@ function DLMCL_Plugin_Error_inactive()
  */
 function DLMCL_Plugin_Error_required()
 {
-    echo '<div class="error"><p>'.__('<strong>DLM Changelog</strong> requires the <a href="http://wordpress.org/plugins/download-monitor/" target="_blank"><strong>Download Monitor</strong></a> plugin to work. Please install and reactivate.', 'dlm-changelog').'</p></div>';
+    echo '<div class="error"><p>';
+    printf(
+        __('%s requires the %s plugin to work. Please install and reactivate.', 'dlm-changelog'),
+        sprintf(
+            '<strong>%s</strong>',
+            __('DLM Changelog', 'dlm-changelog')
+        ),
+        sprintf(
+            '<a href="http://wordpress.org/plugins/download-monitor/" target="_blank"><strong>%s</strong></a>',
+            __('Download Monitor', 'dlm-changelog')
+        )
+    );
+    echo '</p></div>';
+
     if (isset($_GET['activate'])) {
         unset($_GET['activate']);
     }
