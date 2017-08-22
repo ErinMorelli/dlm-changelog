@@ -88,7 +88,7 @@ function DLMCL_Admin_menu()
         'edit.php?post_type=dlm_download',
         __('Changelogs', 'dlm-changelog'),
         __('Changelogs', 'dlm-changelog'),
-        'manage_options',
+        'manage_downloads',
         'download-monitor-changelogs',
         'DLMCL_Admin_page'
     );
