@@ -35,8 +35,8 @@ Use the community support forums for this plugin for questions that are specific
 ## Latest Release ##
 
 
-### [Version 1.1.0 - Minor Feature Update](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.1.0.zip) ###
-* Added simple success/error notifications for save events
+### [Version 1.1.1 - Minor Permissions Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.1.1.zip) ###
+* Changed admin permissions to match Download Monitor's (many thanks to Craig Morin!)
 
 
 

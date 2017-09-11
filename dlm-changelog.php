@@ -3,7 +3,7 @@
  * Plugin Name: DLM Changelog Add-on
  * Plugin URI: https://www.erinmorelli.com/projects/dlm-changelog/
  * Description: An add-on for Mike Jolley's Download Monitor that adds version changelog functionality.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Erin Morelli
  * Author URI: https://erinmorelli.com/
  * License: GPLv2 or later
@@ -13,7 +13,7 @@
  */
 
 /**
- * Copyright (c) 2013-2016, Erin Morelli.
+ * Copyright (c) 2013-2017, Erin Morelli.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ if (!defined('PLUGINDIR')) {
 function DLMCL_Plugin_load()
 {
     // Check for new version
-    $dlmcl_curr_version = '1.1.0';
+    $dlmcl_curr_version = '1.1.1';
 
     // Define new version option
     if (!defined('DLMCL_VERSION_KEY')) {
