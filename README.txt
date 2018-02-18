@@ -3,8 +3,8 @@ Contributors: ErinMorelli
 Donate link: https://www.erinmorelli.com/projects/dlm-changelog/
 Tags: download monitor, changelog, downloads, versions
 Requires at least: 3.0.1
-Tested up to: 4.5
-Stable tag: 1.1.1
+Tested up to: 4.9.4
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,10 @@ To **paginate** the changelog's output, use the optional `show` attribute with t
 
 `[dlm_changelog id={DLM Download ID} show="5"]`
 
+To **hide** download links or release dates (or both), use the optional `hide_links` and/or `hide_release` attributes, respectively:
+
+`[dlm_changelog id={DLM Download ID} hide_links="1" hide_release="1"]`
+
 
 = Support =
 
@@ -43,6 +47,19 @@ Use the community support forums for this plugin for questions that are specific
 
 == Frequently Asked Questions ==
 
+
+= How can I hide the release dates? =
+
+Use the `hide_release` option in your shortcode like this:
+
+`[dlm_changelog id={DLM Download ID} hide_release="1"]`
+
+
+= How can I hide the download links? =
+
+Use the `hide_links` option in your shortcode like this:
+
+`[dlm_changelog id={DLM Download ID} hide_links="1"]`
 
 
 = How do I add changelog version notes? =
@@ -74,8 +91,12 @@ OR
 
 == Changelog ==
 
+= 1.2.0 = 
+* Fixed incompatibility issues with DLM versions 4.0+
+* Added two new shortcode options, `hide_links` and `hide_release`
+
 = 1.1.1 =
-Changed admin permissions to match Download Monitor's (many thanks to Craig Morin!)
+* Changed admin permissions to match Download Monitor's (many thanks to Craig Morin!)
 
 = 1.1.0 =
 * Added simple success/error notifications for save events

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2013-2017, Erin Morelli.
+ * Copyright (c) 2013-2018, Erin Morelli.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -125,7 +125,7 @@ function DLMCL_Admin_page()
 ?>
 <div class="wrap">
 
-    <?php screen_icon(); ?><h2><?php _e('Changelogs', 'dlm-changelog'); ?></h2>
+    <h2><?php _e('Changelogs', 'dlm-changelog'); ?></h2>
 
     <form method="post" id="dlmcl-select-form" action="?post_type=dlm_download&amp;page=download-monitor-changelogs">
 
@@ -157,8 +157,13 @@ function DLMCL_Admin_page()
     <?php if (isset($_POST['dlmcl-select-download']) && ($dlm_id != 'null')) : ?>
 
         <?php
-            $dlm_post = new DLM_Download($dlm_id);
-            $dlm_versions = $dlm_post->get_file_versions();
+            if (DLMCL_USE_LEGACY) {
+                $dlm_post = new DLM_Download($dlm_id);
+                $dlm_versions = $dlm_post->get_file_versions();
+            } else {
+                $dlm_post = download_monitor()->service('download_repository')->retrieve_single($dlm_id);
+                $dlm_versions = $dlm_post->get_versions();
+            }
         ?>
 
         <hr />
@@ -188,20 +193,24 @@ function DLMCL_Admin_page()
             </tfoot>
             <tbody>
                 <?php foreach ($dlm_versions as $dlm_version) :
-                        $this_version = get_post($dlm_version->id); ?>
+                        $this_version_id = DLMCL_USE_LEGACY ? $dlm_version->id : $dlm_version->get_id();
+                        $this_version = get_post($this_version_id);
+                        $this_version_filename = DLMCL_USE_LEGACY ? $dlm_version->filename : $dlm_version->get_filename();
+                        $this_version_version = DLMCL_USE_LEGACY ? $dlm_version->version : $dlm_version->get_version();
+                        $this_version_url = DLMCL_USE_LEGACY ? $dlm_version->url : $dlm_version->get_url(); ?>
                 <tr>
-                    <td><?php echo $dlm_version->id; ?></td>
-                    <td><strong><?php echo $dlm_version->version; ?></strong></td>
+                    <td><?php echo $this_version_id; ?></td>
+                    <td><strong><?php echo $this_version_version; ?></strong></td>
                     <td class="dlmcl-editable-cell">
                         <div
-                            class="dlmcl-editable" id="dlmcl-editable-<?php echo $dlm_version->id; ?>"
+                            class="dlmcl-editable" id="dlmcl-editable-<?php echo $this_version_id; ?>"
                             title="<?php _e('Click to edit version notes', 'dlm-changelog'); ?>"
-                            data-id="<?php echo $dlm_version->id; ?>"
+                            data-id="<?php echo $this_version_id; ?>"
                             data-placeholder="<?php _e('Click to add version notes', 'dlm-changelog'); ?>"
                         ><?php echo $this_version->post_content; ?></div>
                     </td>
                     <td><?php echo date('m/d/y', strtotime($this_version->post_date)); ?></td>
-                    <td><a href="<?php echo $dlm_version->url; ?>"><?php echo $dlm_version->filename; ?></a></td>
+                    <td><a href="<?php echo $this_version_url; ?>"><?php echo $this_version_filename; ?></a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
