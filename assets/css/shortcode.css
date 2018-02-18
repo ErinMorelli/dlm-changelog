@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013-2017, Erin Morelli.
+Copyright (c) 2013-2018, Erin Morelli.
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -57,7 +57,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
     line-height: 20px;
     margin: 0 0 5px;
 }
-.dlm-changelog-list .dlm-changelog-item .cl-dl {
+.dlm-changelog-list .dlm-changelog-item .dlm-changelog-item-meta {
     font-size: 11px;
     margin: 0 0 8px;
     padding: 0;

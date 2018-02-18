@@ -17,6 +17,10 @@ To **paginate** the changelog's output, use the optional `show` attribute with t
 
 `[dlm_changelog id={DLM Download ID} show="5"]`
 
+To **hide** download links or release dates (or both), use the optional `hide_links` and/or `hide_release` attributes, respectively:
+
+`[dlm_changelog id={DLM Download ID} hide_links="1" hide_release="1"]`
+
 
 ### Support ###
 
@@ -35,8 +39,9 @@ Use the community support forums for this plugin for questions that are specific
 ## Latest Release ##
 
 
-### [Version 1.1.1 - Minor Permissions Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.1.1.zip) ###
-* Changed admin permissions to match Download Monitor's (many thanks to Craig Morin!)
+### [Version 1.2.0 - Minor Feature Update](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.2.0.zip) ###
+* Fixed incompatibility issues with DLM versions 4.0+
+* Added two new shortcode options, `hide_links` and `hide_release`
 
 
 
