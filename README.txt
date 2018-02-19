@@ -48,20 +48,6 @@ Use the community support forums for this plugin for questions that are specific
 == Frequently Asked Questions ==
 
 
-= How can I hide the release dates? =
-
-Use the `hide_release` option in your shortcode like this:
-
-`[dlm_changelog id={DLM Download ID} hide_release="1"]`
-
-
-= How can I hide the download links? =
-
-Use the `hide_links` option in your shortcode like this:
-
-`[dlm_changelog id={DLM Download ID} hide_links="1"]`
-
-
 = How do I add changelog version notes? =
 
 Go to "Downloads" then "Changelogs" in the WordPress admin. Select the download you wish to add/edit the changelog for from the dropdown. Under the "Notes" column of the download's Changelog table, click inside the area where your pre-existing notes are or where it says "Click to add notes". An inline text editor will appear for you to use. Click Save" to save your note. Basic HTML, such as *italics*, **bold**, underline, and ordered/unordered lists is able to be used in this text area.
@@ -82,6 +68,19 @@ OR
 
 `[dlm_changelog id={DLM Download ID} show="0"]`
 
+
+= How can I hide the release dates? =
+
+Use the `hide_release` option in your shortcode like this:
+
+`[dlm_changelog id={DLM Download ID} hide_release="1"]`
+
+
+= How can I hide the download links? =
+
+Use the `hide_links` option in your shortcode like this:
+
+`[dlm_changelog id={DLM Download ID} hide_links="1"]`
 
 
 == Screenshots ==
