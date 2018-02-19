@@ -211,7 +211,7 @@ function DLMCL_Shortcode_Display_versions($versions, $hide_links=false, $hide_re
         }
 
         // Release Notes
-        $output .= $release->post_content ."\n";
+        $output .= DLMCL_Plugin_Version_content($version_id)."\n";
 
         // End version output
         $output .= '</div>'."\n";

@@ -21,6 +21,34 @@
 
 
 /**
+ * Saves all version post content to a meta value to prevent overrides
+ *
+ * @param int $version_id The WP post ID of the version being saved
+ *
+ * @return void
+ */
+function DLMCL_Admin_override($version_id)
+{
+    // We only care about DLM version posts
+    if (get_post_type($version_id) != 'dlm_download_version') {
+        return;
+    }
+
+    // Get current post and meta data
+    $version = get_post($version_id);
+    $saved_content = get_post_meta($version_id, DLMCL_POST_CONTENT, true);
+
+    // Update our post meta if there's content
+    if (!$saved_content || $version->post_content != '') {
+        update_post_meta($version_id, DLMCL_POST_CONTENT, $version->post_content);
+    }
+}
+
+// Add to save post hook
+add_action('save_post', 'DLMCL_Admin_override');
+
+
+/**
  * Saves changelog content to the database via AJAX call
  *
  * @return void
@@ -207,7 +235,7 @@ function DLMCL_Admin_page()
                             title="<?php _e('Click to edit version notes', 'dlm-changelog'); ?>"
                             data-id="<?php echo $this_version_id; ?>"
                             data-placeholder="<?php _e('Click to add version notes', 'dlm-changelog'); ?>"
-                        ><?php echo $this_version->post_content; ?></div>
+                        ><?php echo DLMCL_Plugin_Version_content($this_version_id); ?></div>
                     </td>
                     <td><?php echo date('m/d/y', strtotime($this_version->post_date)); ?></td>
                     <td><a href="<?php echo $this_version_url; ?>"><?php echo $this_version_filename; ?></a></td>

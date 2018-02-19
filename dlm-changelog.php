@@ -3,7 +3,7 @@
  * Plugin Name: DLM Changelog Add-on
  * Plugin URI: https://www.erinmorelli.com/projects/dlm-changelog/
  * Description: An add-on for Mike Jolley's Download Monitor that adds version changelog functionality.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: Erin Morelli
  * Author URI: https://erinmorelli.com/
  * License: GPLv2 or later
@@ -41,6 +41,9 @@ if (!defined('PLUGINDIR')) {
     define('PLUGINDIR', 'wp-content/plugins');
 }
 
+// Set post meta name
+define('DLMCL_POST_CONTENT', '_dlmcl_post_content');
+
 
 /**
  * Load DLM Changelog plugin files
@@ -50,7 +53,7 @@ if (!defined('PLUGINDIR')) {
 function DLMCL_Plugin_load()
 {
     // Check for new version
-    $dlmcl_curr_version = '1.2.0';
+    $dlmcl_curr_version = '1.2.1';
 
     // Define new version option
     if (!defined('DLMCL_VERSION_KEY')) {
@@ -296,3 +299,22 @@ function DLMCL_Plugin_uninstall()
 
 // Set uninstall hook
 register_uninstall_hook(__FILE__, 'DLMCL_Plugin_uninstall');
+
+
+/**
+ * Get post content for a given download version
+ *
+ * @param int $version_id The WP post ID for the version
+ *
+ * @return string The HTML-formatted content for the version
+ */
+function DLMCL_Plugin_Version_content($version_id)
+{
+    $version = get_post($version_id);
+
+    if ($version->post_content == '') {
+        return get_post_meta($version_id, DLMCL_POST_CONTENT, true);
+    }
+
+    return $version->post_content;
+}

@@ -39,9 +39,8 @@ Use the community support forums for this plugin for questions that are specific
 ## Latest Release ##
 
 
-### [Version 1.2.0 - Minor Feature Update](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.2.0.zip) ###
-* Fixed incompatibility issues with DLM versions 4.0+
-* Added two new shortcode options, `hide_links` and `hide_release`
+### [Version 1.2.1 - Critical Bug Fix](https://bitbucket.org/ErinMorelli/dlm-changelog/downloads/dlm-changelog.1.2.1.zip) ###
+* Overrides and fixes an issue introduced DLM where saving a download will remove all existing saved changelog content for that download's versions
 
 
 

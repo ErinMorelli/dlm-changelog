@@ -4,7 +4,7 @@ Donate link: https://www.erinmorelli.com/projects/dlm-changelog/
 Tags: download monitor, changelog, downloads, versions
 Requires at least: 3.0.1
 Tested up to: 4.9.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ OR
 
 == Changelog ==
 
+= 1.2.1 =
+* Overrides and fixes an issue introduced DLM where saving a download will remove all existing saved changelog content for that download's versions
+
 = 1.2.0 = 
 * Fixed incompatibility issues with DLM versions 4.0+
 * Added two new shortcode options, `hide_links` and `hide_release`
@@ -120,6 +123,9 @@ OR
 
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+* CRITICAL UPDATE to fix a bug conflict with DLM that caused all changelog data to be deleted when updating a download via DLM
 
 = 1.0.1 =
 * Fixed issue where not all published downloads were showing in admin dropdown
