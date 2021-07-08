@@ -6,6 +6,9 @@ An add-on for Mike Jolley's [Download Monitor](http://wordpress.org/plugins/down
 
 **Requires Download Monitor version 1.2 or higher**
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ErinMorelli_dlm-changelog&metric=alert_status)](https://sonarcloud.io/dashboard?id=ErinMorelli_dlm-changelog)
+
+---
 
 ## Shortcode ##
 
