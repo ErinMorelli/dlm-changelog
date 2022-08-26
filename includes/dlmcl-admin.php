@@ -94,7 +94,7 @@ function DLMCL_Admin_scripts()
 {
     // Load JS
     wp_enqueue_script('jquery');
-    wp_enqueue_script('tiny_mce', '//cdn.tinymce.com/4/tinymce.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('tiny_mce', '//cdn.tiny.cloud/1/no-api-key/tinymce/5.10.5-131/tinymce.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('dlmcl-admin', DLMCL_PLUGIN_URL . 'assets/js/admin.js', array('jquery'), '1.0', true);
 
     // Load CSS
